@@ -73,18 +73,18 @@ seewave::spectro(cut.ophb, flim=c(0, 8), tlim=c(0, 0.88), main="data(Oriental-pi
 
 # 2D spectrogram with curves of relative amplitude at -25 dB
 par(mfrow=c(1,2), mar=c(4,4,1,1))
-s.bhb <- seewave::spectro(cut.blackhb, flim=c(0, 8), tlim = c(0, 0.88),  
+s.bhb <- seewave::spectro(cut.blackhb, flim=c(0, 8), tlim = c(0, 0.88), main = "Black Hornbill spectro",  
                           grid=F, scale=F, f=44100, wl=512, ovlp=70, cont=TRUE, 
                           contlevels = seq(-25, -25, 1), collevels = seq(-40, 0, 0.1))
 #> This took quite a lot of time to display this graphic, you may set 'fastdisp=TRUE' for a faster, but less accurate, display
 
 # 3D spectrogram (with a lower dBlevel for illustrative purpuses)
-threeDspectro(cut.blackhb, dBlevel=40, flim=c(0, 8), tlim=c(0, 0.88), main="",
+threeDspectro(cut.blackhb, dBlevel=40, flim=c(0, 8), tlim=c(0, 0.88), main="Black Hornbill 3D spectro",
               colkey=list(plot=FALSE), cex.axis=0.4, cex.lab=0.8, resfac=2)
 
 # Set background at -40 dB and remove -Inf values from spectrogram data 
 for(i in 1:length(s.bhb$amp)){if(s.bhb$amp[i] == -Inf |s.bhb$amp[i] <= -40)
-{s.kro$amp[i] <- -40}}
+{s.bhb$amp[i] <- -40}}
 
 # Add curve of relative amplitude
 plot3D::contour3D(x=s.bhb$time, y=s.bhb$freq, colvar=t(s.bhb$amp), z=-25,
