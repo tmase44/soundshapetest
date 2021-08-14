@@ -8,16 +8,16 @@ library(ggplot2)
 # https://github.com/p-rocha/SoundShape 
 
 # STORE RESULTS----
-wav.at <- file.path("/Users/Tom_Macbook/soundshapetest", "HBWAV")
+wav.at <- file.path("/Users/tommason/Documents/R/soundshapetest", "HBWAV")
 if(!dir.exists(wav.at)) dir.create(wav.at)
 
-store.at <- file.path("/Users/Tom_Macbook/soundshapetest", "HBOUT")
+store.at <- file.path("/Users/tommason/Documents/R/soundshapetest", "HBOUT")
 if(!dir.exists(store.at)) dir.create(store.at)
 
 # WAV IMPORT----
 
-bhb <- readWave("/Users/Tom_Macbook/soundshapetest/Audio/BlackHornbill.wav")
-ophb <- readWave("/Users/Tom_Macbook/soundshapetest/Audio/OPHornbill.wav")
+bhb <- readWave("/Users/tommason/Documents/R/soundshapetest/Audio/BlackHornbill.wav")
+ophb <- readWave("/Users/tommason/Documents/R/soundshapetest/OPHornbill.wav")
 
 seewave::oscillo(bhb,identify=TRUE,title = "Bhb call")
 bhbc1 <- seewave::cutw(blackhb, f=44100, from=0.0426307, to=0.7144498, output = "Wave")
